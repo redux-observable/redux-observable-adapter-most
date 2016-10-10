@@ -1,0 +1,62 @@
+{
+  "name": "redux-observable-adapter-most",
+  "version": "0.0.1",
+  "description": "Use most.js streams with redux-observable",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:umd && npm run build:umd:min",
+    "build:cjs": "babel src -d lib",
+    "build:umd": "cross-env NODE_ENV=development webpack src/index.js dist/redux-observable-adapter-most.js",
+    "build:umd:min": "cross-env NODE_ENV=production webpack src/index.js dist/redux-observable-adapter-most.min.js",
+    "build:tests": "rm -rf temp && babel test -d temp",
+    "clean": "rimraf temp lib dist",
+    "test": "npm run build && npm run build:tests && mocha temp"
+  },
+  "files": [
+    "dist",
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/redux-observable/redux-observable-adapter-most.git"
+  },
+  "keywords": [
+    "RxJS",
+    "most",
+    "most.js",
+    "compatibility",
+    "interop",
+    "convert",
+    "support"
+  ],
+  "author": "Jay Phelps <hello@jayphelps.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redux-observable/redux-observable-adapter-most/issues"
+  },
+  "homepage": "https://github.com/redux-observable/redux-observable-adapter-most",
+  "peerDependencies": {
+    "most": "^1.0.3",
+    "rxjs": "^5.0.0-beta.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.7.4",
+    "babel-plugin-transform-function-bind": "^6.5.2",
+    "babel-plugin-transform-object-rest-spread": "^6.6.5",
+    "babel-polyfill": "^6.7.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-register": "^6.9.0",
+    "chai": "^3.5.0",
+    "cross-env": "^1.0.8",
+    "mocha": "^2.4.5",
+    "rimraf": "^2.5.2",
+    "most": "^1.0.3",
+    "rxjs": "^5.0.0-beta.6",
+    "sinon": "1.17.4",
+    "webpack": "^1.13.1"
+  }
+}
