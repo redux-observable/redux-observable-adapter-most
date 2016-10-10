@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-adapter-most",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Use most.js streams with redux-observable",
   "main": "lib/index.js",
   "scripts": {

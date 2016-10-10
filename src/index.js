@@ -1,6 +1,6 @@
 import { Stream, filter } from 'most';
 import { ObservableSource } from 'most/lib/observable/fromObservable'; 
-import { Observable } from 'rxjs/Observable';
+import { from } from 'rxjs/observable/from';
 
 export class ActionsStream extends Stream {
   ofType(...keys) {
@@ -30,5 +30,5 @@ export const ofType = (...keys) => {
 
 export default {
   input: input$ => new ActionsStream(new ObservableSource(input$)),
-  output: output$ => Observable.from(output$)
+  output: output$ => from(output$)
 };
