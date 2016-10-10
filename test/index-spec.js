@@ -2,7 +2,9 @@
 import 'babel-polyfill';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { toArray } from 'rxjs/operator/toArray';
 import { Stream } from 'most';
 import { ObservableSource } from 'most/lib/observable/fromObservable';
 import adapter, { ActionsStream } from '../';
@@ -15,7 +17,7 @@ const streamToArray = stream =>
 
 describe('adapter', () => {
   it('should convert input to most.js Stream', () => {
-    const observable = Observable.of(1, 2, 3);
+    const observable = Observable::of(1, 2, 3);
     const stream = adapter.input(observable);
 
     expect(stream).to.be.an.instanceof(Stream);
@@ -32,7 +34,7 @@ describe('adapter', () => {
 
     expect(observable).to.be.an.instanceof(Observable);
 
-    observable.toArray().subscribe(value => {
+    observable::toArray().subscribe(value => {
       expect(value).to.deep.equal([1, 2, 3]);
       done();
     });
@@ -42,7 +44,7 @@ describe('adapter', () => {
 describe('ActionsStream', () => {
   it('should support ofType operator', () => {
     const input$ = new ObservableSource(
-      Observable.of({ type: 'A' }, { type: 'B' }, { type: 'A' })
+      Observable::of({ type: 'A' }, { type: 'B' }, { type: 'A' })
     );
     const action$ = new ActionsStream(input$);
 
