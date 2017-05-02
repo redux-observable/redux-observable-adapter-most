@@ -1,5 +1,7 @@
 # redux-observable-adapter-most
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/redux-observable/redux-observable-adapter-most.svg)](https://greenkeeper.io/)
+
 Use [most.js](https://github.com/cujojs/most) with [redux-observable](https://github.com/redux-observable/redux-observable)
 
 
